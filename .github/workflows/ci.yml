@@ -30,5 +30,6 @@ jobs:
 
       - name: Push image to Docker Hub
         run: |
-          docker tag backend_service mydockerhubuser/backend_service:latest
-          docker push mydockerhubuser/backend_service:latest
+          docker compose -f docker-compose.yml build backend
+          docker tag $(docker compose -f docker-compose.yml images -q backend) blackfargo/backend_service:latest
+          docker push blackfargo/backend_service:latest
