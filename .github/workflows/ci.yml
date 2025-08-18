@@ -27,12 +27,12 @@ jobs:
 
       # 4️⃣ Сборка Docker-образа
       - name: Build Docker image
-        run: docker build -t mydockerhubuser/backend_service:latest ./backend
+        run: docker build -t blackfargo/backend_service:latest ./backend
 
       # 5️⃣ Прогон тестов внутри контейнера
       - name: Run tests
-        run: docker run --rm mydockerhubuser/backend_service:latest npm test
+        run: docker run --rm blackfargo/backend_service:latest npm test
 
       # 6️⃣ Пушим образ на Docker Hub
       - name: Push Docker image
-        run: docker push mydockerhubuser/backend_service:latest
+        run: docker push blackfargo/backend_service:latest
